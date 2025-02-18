@@ -25,9 +25,17 @@ I was not going to compile and maintain a downstream KWin version just so that I
 ## The solution
 
 Turns out, it's way easier than one could think. We can simply use LD_PRELOAD to override the behavior of `libinput_device_config_accel_set_profile`, so that when KWin tries to apply the profile, we will override it with
-our own configuration. Obviously, this is very crude, as it will apply for every single device on the system. You might want to extend the code to only apply it for specific devices, such as your mouse.
+our own configuration. Obviously, this is very crude, as it will apply for every single device on the system. 
+
+You might want to extend the code to only apply it for specific devices, such as your mouse. It can also easily be extended to change the acceleration curve based on the output of the aformentioned python script.
 
 In order to apply this globally to every application that uses libinput, simply compile it, and then add the path to the library file to `/etc/ld.so.preload`
+
+An example of `/etc/ld.so.preload`:
+
+```
+/home/znurre/libmake-libinput-usable.so
+```
 
 ## Compiling
 
