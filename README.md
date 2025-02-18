@@ -29,7 +29,7 @@ our own configuration. Obviously, this is very crude, as it will apply for every
 
 You might want to extend the code to only apply it for specific devices, such as your mouse. It can also easily be extended to change the acceleration curve based on the output of the aformentioned python script.
 
-In order to apply this globally to every application that uses libinput, simply compile it, and then add the path to the library file to `/etc/ld.so.preload`
+In order to apply this globally to every application that uses libinput, simply compile it, and then add the absolute path of the library file to `/etc/ld.so.preload`
 
 An example of `/etc/ld.so.preload`:
 
